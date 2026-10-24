@@ -6,3 +6,7 @@ class Exercise(db.Model):
     name = db.Column(db.String)
     category = db.Column(db.String)
     equipment_needed = db.Column(db.Boolean)
+
+    workout_exercises = db.relationship(
+        "WorkoutExercise", back_populates="exercise"
+    )
