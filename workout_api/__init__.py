@@ -12,6 +12,8 @@ def create_app(config_object=None):
     db.init_app(app)
     migrate.init_app(app, db)
 
+    import workout_api.models
+
     from workout_api.routes import api
 
     app.register_blueprint(api)
