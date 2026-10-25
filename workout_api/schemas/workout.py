@@ -16,7 +16,7 @@ class WorkoutSchema(Schema):
     id = fields.Int(dump_only=True)
     date = fields.Date(required=True)
     duration_minutes = fields.Int(required=True, validate=validate.Range(min=0))
-    notes = fields.Str(allow_none=True)
+    notes = fields.Str(allow_none=True, validate=validate.Length(max=1000))
     workout_exercises = fields.List(
         fields.Nested(WorkoutExerciseSchema), dump_only=True
     )
